@@ -7,8 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		639CD66C859E0C7A7B1E3895 /* Pods_annoying_things.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2538D2A8AFF18F409475346 /* Pods_annoying_things.framework */; };
+		CE18001F1C01676100C4383D /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE18001C1C01676100C4383D /* Bolts.framework */; settings = {ASSET_TAGS = (); }; };
+		CE1800201C01676100C4383D /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE18001D1C01676100C4383D /* FBSDKCoreKit.framework */; settings = {ASSET_TAGS = (); }; };
+		CE1800211C01676100C4383D /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE18001E1C01676100C4383D /* FBSDKLoginKit.framework */; settings = {ASSET_TAGS = (); }; };
 		CE19EB7B1C0048530043B4E9 /* MaterialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE19EB7A1C0048530043B4E9 /* MaterialButton.swift */; settings = {ASSET_TAGS = (); }; };
 		CE19EB7D1C0058410043B4E9 /* MaterialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE19EB7C1C0058410043B4E9 /* MaterialTextField.swift */; settings = {ASSET_TAGS = (); }; };
+		CE29A8291C0A66CE00BAE87A /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29A8281C0A66CE00BAE87A /* DataService.swift */; settings = {ASSET_TAGS = (); }; };
+		CE88D0DE1C0FF6480052DFAD /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE88D0DD1C0FF6480052DFAD /* FeedVC.swift */; settings = {ASSET_TAGS = (); }; };
+		CE88D0E01C0FFBEB0052DFAD /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE88D0DF1C0FFBEB0052DFAD /* PostCell.swift */; settings = {ASSET_TAGS = (); }; };
 		CEC990F51BFF0DDF00DDE77F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC990F41BFF0DDF00DDE77F /* AppDelegate.swift */; };
 		CEC990F71BFF0DDF00DDE77F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC990F61BFF0DDF00DDE77F /* ViewController.swift */; };
 		CEC990FA1BFF0DDF00DDE77F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEC990F81BFF0DDF00DDE77F /* Main.storyboard */; };
@@ -20,11 +27,19 @@
 		CEC991111BFF107100DDE77F /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEC9910D1BFF107100DDE77F /* NotoSans-Regular.ttf */; settings = {ASSET_TAGS = (); }; };
 		CEC991131BFF1ACB00DDE77F /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC991121BFF1ACB00DDE77F /* MaterialView.swift */; settings = {ASSET_TAGS = (); }; };
 		CEC991161BFF1B8500DDE77F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC991151BFF1B8500DDE77F /* Constants.swift */; settings = {ASSET_TAGS = (); }; };
+		CEC9D7F01C16C1F200BAD6BD /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC9D7EF1C16C1F200BAD6BD /* Post.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C9F6A3E240B585CBC3F0BFDB /* Pods-annoying-things.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-annoying-things.debug.xcconfig"; path = "Pods/Target Support Files/Pods-annoying-things/Pods-annoying-things.debug.xcconfig"; sourceTree = "<group>"; };
+		CE18001C1C01676100C4383D /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		CE18001D1C01676100C4383D /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		CE18001E1C01676100C4383D /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		CE19EB7A1C0048530043B4E9 /* MaterialButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialButton.swift; sourceTree = "<group>"; };
 		CE19EB7C1C0058410043B4E9 /* MaterialTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialTextField.swift; sourceTree = "<group>"; };
+		CE29A8281C0A66CE00BAE87A /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		CE88D0DD1C0FF6480052DFAD /* FeedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
+		CE88D0DF1C0FFBEB0052DFAD /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		CEC990F11BFF0DDF00DDE77F /* annoying-things.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "annoying-things.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC990F41BFF0DDF00DDE77F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEC990F61BFF0DDF00DDE77F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -38,6 +53,9 @@
 		CEC9910D1BFF107100DDE77F /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Regular.ttf"; sourceTree = "<group>"; };
 		CEC991121BFF1ACB00DDE77F /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 		CEC991151BFF1B8500DDE77F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CEC9D7EF1C16C1F200BAD6BD /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		D2538D2A8AFF18F409475346 /* Pods_annoying_things.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_annoying_things.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFB984E8EAAAB38E9AE989CC /* Pods-annoying-things.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-annoying-things.release.xcconfig"; path = "Pods/Target Support Files/Pods-annoying-things/Pods-annoying-things.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,17 +63,49 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE18001F1C01676100C4383D /* Bolts.framework in Frameworks */,
+				CE1800201C01676100C4383D /* FBSDKCoreKit.framework in Frameworks */,
+				CE1800211C01676100C4383D /* FBSDKLoginKit.framework in Frameworks */,
+				639CD66C859E0C7A7B1E3895 /* Pods_annoying_things.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E04D7FC1140CEA26A4C3057 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D2538D2A8AFF18F409475346 /* Pods_annoying_things.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE18001B1C01674800C4383D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE18001C1C01676100C4383D /* Bolts.framework */,
+				CE18001D1C01676100C4383D /* FBSDKCoreKit.framework */,
+				CE18001E1C01676100C4383D /* FBSDKLoginKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE29A8271C0A662900BAE87A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CE29A8281C0A66CE00BAE87A /* DataService.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
 		CEC990E81BFF0DDF00DDE77F = {
 			isa = PBXGroup;
 			children = (
 				CEC990F31BFF0DDF00DDE77F /* annoying-things */,
 				CEC990F21BFF0DDF00DDE77F /* Products */,
+				F1693F59362A1B6E7089DE26 /* Pods */,
+				5E04D7FC1140CEA26A4C3057 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,13 +120,14 @@
 		CEC990F31BFF0DDF00DDE77F /* annoying-things */ = {
 			isa = PBXGroup;
 			children = (
+				CE29A8271C0A662900BAE87A /* Services */,
+				CE18001B1C01674800C4383D /* Frameworks */,
 				CEC991141BFF1B6900DDE77F /* Util */,
 				CEC991091BFF100E00DDE77F /* Resources */,
 				CEC991081BFF0FFD00DDE77F /* Model */,
 				CEC991071BFF0FEC00DDE77F /* View */,
 				CEC991061BFF0FDA00DDE77F /* Controller */,
 				CEC990F41BFF0DDF00DDE77F /* AppDelegate.swift */,
-				CEC990F61BFF0DDF00DDE77F /* ViewController.swift */,
 				CEC990F81BFF0DDF00DDE77F /* Main.storyboard */,
 				CEC990FB1BFF0DDF00DDE77F /* Assets.xcassets */,
 				CEC990FD1BFF0DDF00DDE77F /* LaunchScreen.storyboard */,
@@ -88,6 +139,8 @@
 		CEC991061BFF0FDA00DDE77F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CEC990F61BFF0DDF00DDE77F /* ViewController.swift */,
+				CE88D0DD1C0FF6480052DFAD /* FeedVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -98,6 +151,7 @@
 				CEC991121BFF1ACB00DDE77F /* MaterialView.swift */,
 				CE19EB7A1C0048530043B4E9 /* MaterialButton.swift */,
 				CE19EB7C1C0058410043B4E9 /* MaterialTextField.swift */,
+				CE88D0DF1C0FFBEB0052DFAD /* PostCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -105,6 +159,7 @@
 		CEC991081BFF0FFD00DDE77F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CEC9D7EF1C16C1F200BAD6BD /* Post.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -128,6 +183,15 @@
 			name = Util;
 			sourceTree = "<group>";
 		};
+		F1693F59362A1B6E7089DE26 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C9F6A3E240B585CBC3F0BFDB /* Pods-annoying-things.debug.xcconfig */,
+				FFB984E8EAAAB38E9AE989CC /* Pods-annoying-things.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +199,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CEC991031BFF0DDF00DDE77F /* Build configuration list for PBXNativeTarget "annoying-things" */;
 			buildPhases = (
+				511376DDD124AD4EF472F88A /* Check Pods Manifest.lock */,
 				CEC990ED1BFF0DDF00DDE77F /* Sources */,
 				CEC990EE1BFF0DDF00DDE77F /* Frameworks */,
 				CEC990EF1BFF0DDF00DDE77F /* Resources */,
+				4A53C9E6C412F26412184B6F /* Embed Pods Frameworks */,
+				B78602621074AA7BB9425F8A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -197,17 +264,69 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4A53C9E6C412F26412184B6F /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-annoying-things/Pods-annoying-things-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		511376DDD124AD4EF472F88A /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B78602621074AA7BB9425F8A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-annoying-things/Pods-annoying-things-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CEC990ED1BFF0DDF00DDE77F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				CE19EB7D1C0058410043B4E9 /* MaterialTextField.swift in Sources */,
+				CE29A8291C0A66CE00BAE87A /* DataService.swift in Sources */,
 				CEC991131BFF1ACB00DDE77F /* MaterialView.swift in Sources */,
 				CEC990F71BFF0DDF00DDE77F /* ViewController.swift in Sources */,
+				CE88D0DE1C0FF6480052DFAD /* FeedVC.swift in Sources */,
+				CE88D0E01C0FFBEB0052DFAD /* PostCell.swift in Sources */,
 				CEC990F51BFF0DDF00DDE77F /* AppDelegate.swift in Sources */,
 				CEC991161BFF1B8500DDE77F /* Constants.swift in Sources */,
 				CE19EB7B1C0048530043B4E9 /* MaterialButton.swift in Sources */,
+				CEC9D7F01C16C1F200BAD6BD /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,8 +437,14 @@
 		};
 		CEC991041BFF0DDF00DDE77F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9F6A3E240B585CBC3F0BFDB /* Pods-annoying-things.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/annoying-things",
+				);
 				INFOPLIST_FILE = "annoying-things/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codervox.annoying-things";
@@ -329,8 +454,14 @@
 		};
 		CEC991051BFF0DDF00DDE77F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FFB984E8EAAAB38E9AE989CC /* Pods-annoying-things.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/annoying-things",
+				);
 				INFOPLIST_FILE = "annoying-things/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codervox.annoying-things";

@@ -32,7 +32,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 for snap in snapshots {
                     print("SNAP: \(snap)")
                     
-                    // Converting our objects to dictionarys
+                    // Converting our objects to dictionaries
                     if let postDict = snap.value as? Dictionary<String, AnyObject> {
                         let key = snap.key
                         let post = Post(postKey: key, dictionary: postDict)
@@ -64,7 +64,13 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         let post = posts[indexPath.row]
         
-        return tableView.dequeueReusableCellWithIdentifier("PostCell") as! PostCell
+        if let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as? PostCell {
+            cell.configureCell(post)
+            return cell
+        }   else {
+            return PostCell()
+        }
+
     }
     
 }

@@ -13,12 +13,16 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     var posts = [Post]() // Empty array to contain our posts
+    static var imageCache = NSCache() //A container to hold our images that were downloaded. We're making it static to make it available globally.
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        //The height of the cell with an image inside of it.
+        tableView.estimatedRowHeight = 358
         
         
         // This observes any changes on a path, and gets called each time data changes and updates the UI.
@@ -62,15 +66,47 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        //Grabbing all of our posts
         let post = posts[indexPath.row]
         
+        //Grabbing a reuseable cell
         if let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as? PostCell {
-            cell.configureCell(post)
+            
+            //Since this is an old that went off the screen, we want to cancel the old request
+            cell.request?.cancel()
+            
+            //Declaring an image variable and making it optional because it may not exist.
+            var img: UIImage?
+            
+            //Grab the image URL if it exists.
+            if let url = post.imageUrl {
+                
+                //We're storing the URL as the key name, and the image data is the value.
+                img = FeedVC.imageCache.objectForKey(url) as? UIImage
+            }
+            
+            //Throwing our posts into the cells, and the img (if it exists)
+            cell.configureCell(post, img: img)
             return cell
-        }   else {
+        } else {
+            //If it didn't work, we're gonna return a new cell
             return PostCell()
         }
 
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        //Grab our posts
+        let post = posts[indexPath.row]
+        
+        //If no image exists, make it a shorter height.
+        if post.imageUrl == nil {
+            return 150
+        } else {
+            //If the image exists, make it the height that we set.
+            return tableView.estimatedRowHeight
+        }
     }
     
 }

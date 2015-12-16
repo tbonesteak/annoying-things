@@ -9,10 +9,18 @@
 import UIKit
 import Firebase
 
-class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var postField: MaterialTextField!
+    
+    @IBOutlet weak var imageSelectorImage: UIImageView!
+    
+    
     var posts = [Post]() // Empty array to contain our posts
+    
+    var imagePicker: UIImagePickerController!
+    
     static var imageCache = NSCache() //A container to hold our images that were downloaded. We're making it static to make it available globally.
     
     override func viewDidLoad() {
@@ -23,6 +31,9 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         //The height of the cell with an image inside of it.
         tableView.estimatedRowHeight = 358
+        
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
         
         
         // This observes any changes on a path, and gets called each time data changes and updates the UI.
@@ -108,5 +119,22 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             return tableView.estimatedRowHeight
         }
     }
+    
+    //This is called after you pick an image.
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        
+        imagePicker.dismissViewControllerAnimated(true, completion: nil)
+        
+        //Changing the image on our image selector to be whatever was picked from the user's image picker.
+        imageSelectorImage.image = image
+    }
+    
+    @IBAction func selectImage(sender: UITapGestureRecognizer) {
+        presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
+    @IBAction func makePost(sender: AnyObject) {
+    }
+    
     
 }

@@ -55,6 +55,9 @@ class PostCell: UITableViewCell {
             //We're passing in the cached image, if it exists.
             if img != nil {
                 self.showcaseImg.image = img
+                
+                //We need this line or else the last image unintentionally doesn't display for some reason.
+                self.showcaseImg.hidden = false
             } else {
                 // If we're at this point, it means theres no image in the cache, so we need to make a download.
                 //It's a GET request because we're downloading something, and its from the post.imageURL, and we are validating that it is of type image.
@@ -65,6 +68,9 @@ class PostCell: UITableViewCell {
                         //We're passing in the image data
                         let img = UIImage(data: data!)!
                         self.showcaseImg.image = img
+                        
+                        //We need this line or else the last image unintentionally doesn't display for some reason.
+                        self.showcaseImg.hidden = false
                         //Now that the image is downloaded, we're saving it to the cache.
                         FeedVC.imageCache.setObject(img, forKey: self.post.imageUrl!)
                     }

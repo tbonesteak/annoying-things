@@ -20,6 +20,9 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     
     var posts = [Post]() // Empty array to contain our posts
     
+    //We're setting the image selector to being empty from the start of the app.
+    var imageSelected = false
+    
     var imagePicker: UIImagePickerController!
     
     static var imageCache = NSCache() //A container to hold our images that were downloaded. We're making it static to make it available globally.
@@ -128,6 +131,8 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         
         //Changing the image on our image selector to be whatever was picked from the user's image picker.
         imageSelectorImage.image = image
+        //Setting our imageSelected boolean to true.
+        imageSelected = true
     }
     
     @IBAction func selectImage(sender: UITapGestureRecognizer) {
@@ -139,8 +144,8 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         //Making sure the description field is not empty.
         if let txt = postField.text where txt != "" {
             
-            //Checking to see if there is an image
-            if let img = imageSelectorImage.image {
+            //Checking to see if there is an image with two checks to make sure it's there.
+            if let img = imageSelectorImage.image where imageSelected == true {
                 
                 //This is imageshack endpoint URL that we need to upload to.
                 let urlStr = "https://post.imageshack.us/upload_api.php"
@@ -185,6 +190,8 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
                                         //Now grabbing the actual image link.
                                         if let imgLink = links["image_link"] as? String {
                                             print("LINK: \(imgLink)")
+                                            //Calling the postToFirebase function and passing in the image link we grabbed from the returning JSON.
+                                            self.postToFirebase(imgLink)
                                         }
                                     }
                                 }
@@ -196,8 +203,38 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
                         }
             }
             
-        }
+            } else {
+                //If we're here it's because no image was selected. We're going to pass nothing in (nil).
+                self.postToFirebase(nil)
+            }
     }
    }
+    
+    func postToFirebase(imgUrl: String?) {
+        //Initializing a dictionary.
+        var post: Dictionary<String, AnyObject> = [
+            "description":  postField.text!,
+            "likes": 0
+        ]
+        
+        //If there is an image url, this will be added to the above dictionary.
+        if imgUrl != nil {
+            post["imageUrl"] = imgUrl!
+        }
+        
+        //Here we are pushing the data into Firebase.
+        let firebasePost = DataService.ds.REF_POSTS.childByAutoId()
+        firebasePost.setValue(post)
+        
+        //Clearing out the text in the text box.
+        postField.text == ""
+        
+        //Setting the image selector image back to the regular camera icon.
+        imageSelectorImage.image = UIImage(named: "camera")
+        
+        //Setting out image selected boolean back to false.
+        imageSelected = false
+        tableView.reloadData()
+    }
     
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import Firebase
 
 class PostCell: UITableViewCell {
     
@@ -15,16 +16,25 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var showcaseImg: UIImageView!
     @IBOutlet weak var descriptionText: UITextView!
     @IBOutlet weak var likesLbl: UILabel!
+    @IBOutlet weak var likeImage: UIImageView!
     
     // Creating a container to hold the instance of the Post class
     var post: Post!
     //We're storing a request because we want to be able to cancel it. Normally you don't need to store to make a request.
     var request: Request?
+    
+    //Reference to whether the user has liked the current post that is being displayed
+    var likeRef: Firebase!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         
+        //This is the code to make the heart icon recognize a tap.
+        //likeTapped is a function we created below. The colon is necessary on likeTapped because it's going to pass an argument.
+        let tap = UITapGestureRecognizer(target: self, action: "likeTapped:")
+        tap.numberOfTapsRequired = 1
+        likeImage.addGestureRecognizer(tap)
+        likeImage.userInteractionEnabled = true
 
     }
     
@@ -41,6 +51,10 @@ class PostCell: UITableViewCell {
         // Passing in the instance of the Post class using the container we created at the top
         
         self.post = post
+        
+        //Grabbing a reference to the current user and the likes and the post key of the post being displayed on the screen.
+        //If that post doesn't exist (meaning that post was never liked), that's ok too.
+        likeRef = DataService.ds.REF_CURRENT_USER.childByAppendingPath("likes").childByAppendingPath(post.postKey)
         
         // We're pulling out the attributes from the instance and throwing it into our outlets
         
@@ -84,6 +98,37 @@ class PostCell: UITableViewCell {
             self.showcaseImg.hidden = true
         }
         
+        
+        
+        //This checks once to see if there is a like for the post.
+        likeRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            
+            //.Value grabs us the data. If it doesn't exist, we need to show the empty heart. In Firebase, data that doesn't exist is known as NSNull.
+            if let doesNotExist = snapshot.value as? NSNull {
+                //If we got here, it means we have not liked this specific post
+                self.likeImage.image = UIImage(named: "heart-empty")
+            } else {
+                self.likeImage.image = UIImage(named: "heart-full")
+            }
+        })
+        
+    }
+    
+    func likeTapped(sender: UIGestureRecognizer) {
+        likeRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            
+            //.Value grabs us the data. If it doesn't exist, we need to show the empty heart. In Firebase, data that doesn't exist is known as NSNull.
+            if let doesNotExist = snapshot.value as? NSNull {
+                //If we got here, it means we have not liked this specific post
+                self.likeImage.image = UIImage(named: "heart-full")
+                self.post.adjustLikes(true) //adds 1 to the likes.
+                self.likeRef.setValue(true) //adds on a reference to the post that was liked to the current user.
+            } else {
+                self.likeImage.image = UIImage(named: "heart-empty")
+                self.post.adjustLikes(false) //removes 1 from the likes.
+                self.likeRef.removeValue()
+            }
+        })
     }
 
 }

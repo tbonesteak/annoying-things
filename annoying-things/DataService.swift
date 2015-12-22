@@ -34,6 +34,17 @@ class DataService {
         return _REF_USERS
     }
     
+    //We are grabbing a reference to the current user that is logged in here.
+    var REF_CURRENT_USER: Firebase {
+        
+        //Grabbing their user ID.
+        let uid = NSUserDefaults.standardUserDefaults().valueForKey(KEY_UID) as! String
+        
+        //Creating the URL to the current user.
+        let user = Firebase(url: "\(URL_BASE)").childByAppendingPath("users").childByAppendingPath(uid)
+        return user!
+    }
+    
     
     //Creates a new user and passes in the new values
     func createFirebaseUser(uid: String, user: Dictionary<String, String>) {

@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         
         // Grab the key if it exists, and if so, take them to the next screen.
         if NSUserDefaults.standardUserDefaults().valueForKey(KEY_UID) != nil {
-            self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
+            self.performSegueWithIdentifier(SEGUE_STRAIGHT_TO_FEED, sender: nil)
         }
         
     }

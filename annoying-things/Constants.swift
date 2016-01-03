@@ -17,9 +17,12 @@ let SHADOW_COLOR: CGFloat = 157.0 / 255.0
 
 //Keys
 let KEY_UID = "uid"
+let KEY_USERNAME = "username"
 
 //Segues
 let SEGUE_LOGGED_IN = "loggedIn"
+let TO_FEED_VC = "tofeedvc"
+let SEGUE_STRAIGHT_TO_FEED = "straightofeed"
 
 //Status Codes
 let STATUS_ACCOUNT_NONEXIST = -8

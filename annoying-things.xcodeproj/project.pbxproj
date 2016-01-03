@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		639CD66C859E0C7A7B1E3895 /* Pods_annoying_things.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2538D2A8AFF18F409475346 /* Pods_annoying_things.framework */; };
+		CE0074781C2B6CBB009D7E1C /* CreateUserNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0074771C2B6CBB009D7E1C /* CreateUserNameVC.swift */; settings = {ASSET_TAGS = (); }; };
 		CE18001F1C01676100C4383D /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE18001C1C01676100C4383D /* Bolts.framework */; settings = {ASSET_TAGS = (); }; };
 		CE1800201C01676100C4383D /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE18001D1C01676100C4383D /* FBSDKCoreKit.framework */; settings = {ASSET_TAGS = (); }; };
 		CE1800211C01676100C4383D /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE18001E1C01676100C4383D /* FBSDKLoginKit.framework */; settings = {ASSET_TAGS = (); }; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		C9F6A3E240B585CBC3F0BFDB /* Pods-annoying-things.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-annoying-things.debug.xcconfig"; path = "Pods/Target Support Files/Pods-annoying-things/Pods-annoying-things.debug.xcconfig"; sourceTree = "<group>"; };
+		CE0074771C2B6CBB009D7E1C /* CreateUserNameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUserNameVC.swift; sourceTree = "<group>"; };
 		CE18001C1C01676100C4383D /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		CE18001D1C01676100C4383D /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		CE18001E1C01676100C4383D /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			children = (
 				CEC990F61BFF0DDF00DDE77F /* ViewController.swift */,
 				CE88D0DD1C0FF6480052DFAD /* FeedVC.swift */,
+				CE0074771C2B6CBB009D7E1C /* CreateUserNameVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				CEC991131BFF1ACB00DDE77F /* MaterialView.swift in Sources */,
 				CEC990F71BFF0DDF00DDE77F /* ViewController.swift in Sources */,
 				CE88D0DE1C0FF6480052DFAD /* FeedVC.swift in Sources */,
+				CE0074781C2B6CBB009D7E1C /* CreateUserNameVC.swift in Sources */,
 				CE88D0E01C0FFBEB0052DFAD /* PostCell.swift in Sources */,
 				CEC990F51BFF0DDF00DDE77F /* AppDelegate.swift in Sources */,
 				CEC991161BFF1B8500DDE77F /* Constants.swift in Sources */,

@@ -64,6 +64,13 @@ class Post {
             self._postDescription = desc
         }
         
+        //-JL////////////////
+        
+        if let user = dictionary["username"] as? String {
+            self._username = user
+        }
+        //-JL////////////////
+        
         self._postRef = DataService.ds.REF_POSTS.childByAppendingPath(self._postKey)
     }
     

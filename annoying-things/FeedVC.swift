@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import Alamofire
+import Foundation
 
 class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
 
@@ -25,6 +26,9 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     
     var imagePicker: UIImagePickerController!
     
+    //-JL
+    var username: String!
+    
     static var imageCache = NSCache() //A container to hold our images that were downloaded. We're making it static to make it available globally.
     
     override func viewDidLoad() {
@@ -39,11 +43,12 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         
-        
         // This observes any changes on a path, and gets called each time data changes and updates the UI.
         // Snapshots are the data objects you receive from Firebase. You have to parse snapshots to get the data out
-        DataService.ds.REF_POSTS.observeEventType(.Value, withBlock: { snapshot in
+        
+        DataService.ds.REF_POSTS.queryOrderedByPriority().observeEventType(.Value, withBlock: { snapshot in
             print(snapshot.value)
+            
             
             self.posts = [] // We want to empty out our array in case there's already data in it for everytime this updates
             if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
@@ -211,10 +216,24 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
    }
     
     func postToFirebase(imgUrl: String?) {
+        
+        //-JL
+//            DataService.ds.REF_CURRENT_USER.observeEventType(FEventType.Value, withBlock: { snapshot in
+//            self.username = snapshot.value.objectForKey("username") as! String
+//            print("The user name is \(self.username)")
+//        })
+
+        username = NSUserDefaults.standardUserDefaults().valueForKey(KEY_USERNAME) as! String
+        let date = NSDate().timeIntervalSince1970
+        //////
+        
         //Initializing a dictionary.
         var post: Dictionary<String, AnyObject> = [
             "description":  postField.text!,
-            "likes": 0
+            "likes": 0,
+            // Here goes nothing again -JL
+            "username": username,
+            "time": date
         ]
         
         //If there is an image url, this will be added to the above dictionary.
@@ -227,7 +246,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         firebasePost.setValue(post)
         
         //Clearing out the text in the text box.
-        postField.text == ""
+        postField.text = ""
         
         //Setting the image selector image back to the regular camera icon.
         imageSelectorImage.image = UIImage(named: "camera")

@@ -17,6 +17,7 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var descriptionText: UITextView!
     @IBOutlet weak var likesLbl: UILabel!
     @IBOutlet weak var likeImage: UIImageView!
+    @IBOutlet weak var theUsername: UILabel!
     
     // Creating a container to hold the instance of the Post class
     var post: Post!
@@ -25,6 +26,9 @@ class PostCell: UITableViewCell {
     
     //Reference to whether the user has liked the current post that is being displayed
     var likeRef: Firebase!
+    
+    //-JL
+    var yes: String!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -60,6 +64,18 @@ class PostCell: UITableViewCell {
         
         self.descriptionText.text = post.postDescription
         self.likesLbl.text = "\(post.likes)"
+        
+        //Here goes nothing. -JL ///////////
+        
+//        DataService.ds.REF_POSTS.observeEventType(FEventType.ChildAdded, withBlock: { snapshot in
+//            self.yes = snapshot.value.objectForKey("username") as! String
+//            self.theUsername.text = self.yes
+//        })
+        
+        
+        
+        self.theUsername.text = post.username
+        /////////////////////////
         
         //Checking to see if there is an image URL, because the user doesn't have to submit an image.
         if post.imageUrl != nil {
@@ -97,7 +113,6 @@ class PostCell: UITableViewCell {
             //If the image doesn't exist, lets just hide it altogether.
             self.showcaseImg.hidden = true
         }
-        
         
         
         //This checks once to see if there is a like for the post.

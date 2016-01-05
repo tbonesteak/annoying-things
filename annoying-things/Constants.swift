@@ -26,3 +26,8 @@ let SEGUE_STRAIGHT_TO_FEED = "straightofeed"
 
 //Status Codes
 let STATUS_ACCOUNT_NONEXIST = -8
+
+//Time
+let TIMESTAMP = NSDate().timeIntervalSince1970
+let TIMEDATE = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .MediumStyle, timeStyle: .ShortStyle)
+

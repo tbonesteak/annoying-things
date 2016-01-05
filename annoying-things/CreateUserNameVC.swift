@@ -12,19 +12,39 @@ import Firebase
 import Alamofire
 
 
-class CreateUserNameVC: UIViewController {
+class CreateUserNameVC: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var createUsername: MaterialTextField!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //This will make the keyboard dismiss when taping outside the keyboard.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
+        
+        //This will make the keyboard dismiss when taping the return key.
+        createUsername.delegate = self
 
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
+    }
+    
+    //This will make the keyboard dismiss when taping outside the keyboard.
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
+    //This will make the keyboard dismiss when taping the return key.
+    func textFieldShouldReturn(userText: UITextField) -> Bool {
+        userText.resignFirstResponder()
+        return true;
     }
     
     // We can use this to show any customized error pop message box.
@@ -54,6 +74,8 @@ class CreateUserNameVC: UIViewController {
             let username = createUsername.text
             NSUserDefaults.standardUserDefaults().setObject(username, forKey: KEY_USERNAME)
             performSegueWithIdentifier(TO_FEED_VC, sender: nil)
+        } else {
+            showErrorAlert("Username is required", msg: "Please enter a user name. Thank you very much!")
         }
         
     }

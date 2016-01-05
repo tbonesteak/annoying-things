@@ -10,7 +10,7 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -26,6 +26,14 @@ class ViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
+        //This will make the keyboard dismiss when taping outside the keyboard.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
+        
+        //This will make the keyboard dismiss when taping the return key.
+        emailField.delegate = self
+        passwordField.delegate = self
+        
         // Grab the key if it exists, and if so, take them to the next screen.
         if NSUserDefaults.standardUserDefaults().valueForKey(KEY_UID) != nil {
             self.performSegueWithIdentifier(SEGUE_STRAIGHT_TO_FEED, sender: nil)
@@ -33,6 +41,17 @@ class ViewController: UIViewController {
         
     }
     
+    //This will make the keyboard dismiss when taping outside the keyboard.
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
+    //This will make the keyboard dismiss when taping the return key.
+    func textFieldShouldReturn(userText: UITextField) -> Bool {
+        userText.resignFirstResponder()
+        return true;
+    }
     
     // Facebook Login button. This code is in the Firebase Facebook login documentation.
     
@@ -59,7 +78,7 @@ class ViewController: UIViewController {
                         print("Logged in! \(authData)")
                         
                         //Creates a new user who signed up with Facebook and saves into the Firebase database
-                        let user = ["provider": authData.provider!, "blah":"test"]
+                        let user = ["provider": authData.provider!, "timestamp": "\(TIMESTAMP)", "Date": "\(TIMEDATE)"]
                         DataService.ds.createFirebaseUser(authData.uid, user: user)
                         
                         
@@ -104,7 +123,7 @@ class ViewController: UIViewController {
                                 
                                 // We are creating the new user and saving it to the datbase here. We only get the AuthID after we have logged in.
                                 DataService.ds.REF_BASE.authUser(email, password: pwd, withCompletionBlock: { err, authData in
-                                    let user = ["provider": authData.provider!, "blah":"emailtest"]
+                                    let user = ["provider": authData.provider!, "timestamp": "\(TIMESTAMP)", "Date": "\(TIMEDATE)"]
                                     DataService.ds.createFirebaseUser(authData.uid, user: user)
                                 })
                                 

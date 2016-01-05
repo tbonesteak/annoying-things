@@ -11,7 +11,7 @@ import Firebase
 import Alamofire
 import Foundation
 
-class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate  {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var postField: MaterialTextField!
@@ -37,6 +37,14 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         tableView.delegate = self
         tableView.dataSource = self
         
+        //This will make the keyboard dismiss when taping outside the keyboard.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
+        
+        //This will make the keyboard dismiss when taping the return key.
+        postField.delegate = self
+
+        
         //The height of the cell with an image inside of it.
         tableView.estimatedRowHeight = 358
         
@@ -46,7 +54,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         // This observes any changes on a path, and gets called each time data changes and updates the UI.
         // Snapshots are the data objects you receive from Firebase. You have to parse snapshots to get the data out
         
-        DataService.ds.REF_POSTS.queryOrderedByPriority().observeEventType(.Value, withBlock: { snapshot in
+        DataService.ds.REF_POSTS.queryOrderedByChild("timestamp").observeEventType(.Value, withBlock: { snapshot in
             print(snapshot.value)
             
             
@@ -65,7 +73,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
                         print("The key is \(key)")
                         print("The postDict is \(postDict)")
                     }
-                    
+ 
                 }
                 
             }
@@ -73,6 +81,18 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
             self.tableView.reloadData()
         })
 
+    }
+    
+    //This will make the keyboard dismiss when taping outside the keyboard.
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
+    //This will make the keyboard dismiss when taping the return key.
+    func textFieldShouldReturn(userText: UITextField) -> Bool {
+        userText.resignFirstResponder()
+        return true;
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -145,75 +165,49 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     }
     
     @IBAction func makePost(sender: AnyObject) {
-        
         //Making sure the description field is not empty.
         if let txt = postField.text where txt != "" {
             
             //Checking to see if there is an image with two checks to make sure it's there.
             if let img = imageSelectorImage.image where imageSelected == true {
                 
-                //This is imageshack endpoint URL that we need to upload to.
-                let urlStr = "https://post.imageshack.us/upload_api.php"
-                //Taking the link and turning it into an NSURL.
-                let url = NSURL(string: urlStr)!
-                //Converting the image to data amd as a JPEG, and also compressing it. 0 means totally compressed, 1 means fully uncompressed.
-                let imgData = UIImageJPEGRepresentation(img, 0.2)!
-                //Imageshack API key, and converting it to data.
-                let keyData = "P3Q08ZW98ea1d510dde3c37d688cdc0bd832ac05".dataUsingEncoding(NSUTF8StringEncoding)!
-                //Converting the word JSON into data because it's a required parameter.
-                let keyJSON = "json".dataUsingEncoding(NSUTF8StringEncoding)!
                 
-                //We need to do a multiform data request because we are uploading several different things and of different file types (namely, the image file and the API key and format. So, we need to convert all of it to NSData.
-                //In Alamofire, there is a method MultipartFormData, and this is what we are using for that purpose.
-                //We're saying it's a POST request, it wants a URL so we're giving it that.
-                //You can command click on upload to see what the requirements are.
+                let urlStr = "https://pictshare.net/backend.php"
+                let url = NSURL(string: urlStr)!
+                let postimage: NSData = UIImageJPEGRepresentation(img, 0.2)!
+                
+                
+                
                 Alamofire.upload(.POST, url, multipartFormData: { multipartFormData in
-                    //In this closure, we need to add the fields that the POST request is gonna require.
-                    
-                    //Passing in the image data and giving it the name "fileupload" as required from the API doc. fileName can be anything, so we're just calling it image for now, but Imageshack will rename that automatically. mimeType is the type of image we are transferring.
-                    multipartFormData.appendBodyPart(data: imgData, name: "fileupload", fileName:"image", mimeType: "image/jpg")
-                    //The API key. The name is "key" as required from the API doc.
-                    multipartFormData.appendBodyPart(data: keyData, name: "key")
-                    multipartFormData.appendBodyPart(data: keyJSON, name: "format")
-                    
+                    multipartFormData.appendBodyPart(data: postimage, name: "postimage", fileName:"postimage", mimeType: "image/jpg")
                     }) { encodingResult in
-                        //After the POST request is made, the result is going to come through here. It will come back with either success or an error.
-                        //We're doing a swtich statement in here
-                        
-                        //.Success and .Failure are part of Alamofire's multipartformdata.
                         switch encodingResult {
-                        //If it was successful, we're grabbing the JSON it sends back
+                            //If it was successful, we're grabbing the JSON it sends back
                         case .Success(let upload, _, _):
                             upload.responseJSON(completionHandler: { request, response, result in
                                 
-                                //We want to grab the image link out of the JSON. This is a dictionary within a dictionary.
-                                //We're taking the value of the result we got back and converting it to a dictionary with keys of type string and values of type AnyObject.
+                                print(result.value)
+                                
                                 if let info = result.value as? Dictionary<String, AnyObject> {
                                     
-                                    //Grabbing the links dictionary that is contained within.
-                                    if let links = info["links"] as? Dictionary<String, AnyObject> {
-                                        //Now grabbing the actual image link.
-                                        if let imgLink = links["image_link"] as? String {
-                                            print("LINK: \(imgLink)")
-                                            //Calling the postToFirebase function and passing in the image link we grabbed from the returning JSON.
-                                            self.postToFirebase(imgLink)
-                                        }
+                                    if let imgLink = info["url"] as? String {
+                                        print("LINK: \(imgLink)")
+                                        self.postToFirebase(imgLink)
                                     }
                                 }
-                                
                             })
-                        //If it fails, let's just print the error.
+                            //If it fails, let's just print the error.
                         case .Failure(let error):
                             print (error)
                         }
-            }
-            
+                }
+                
             } else {
                 //If we're here it's because no image was selected. We're going to pass nothing in (nil).
                 self.postToFirebase(nil)
             }
+        }
     }
-   }
     
     func postToFirebase(imgUrl: String?) {
         
@@ -224,7 +218,22 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
 //        })
 
         username = NSUserDefaults.standardUserDefaults().valueForKey(KEY_USERNAME) as! String
-        let date = NSDate().timeIntervalSince1970
+        
+        func timeStamp() ->NSTimeInterval {
+            let theTime = NSDate().timeIntervalSince1970
+            return theTime
+        }
+        
+        func timeDate() -> String {
+            let theTimeDate = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .MediumStyle, timeStyle: .ShortStyle)
+            return theTimeDate
+        }
+        
+        let myTimeStamp = timeStamp()
+        let myTimeStampNeg = "-\(myTimeStamp)"
+        let thedouble = Double(myTimeStampNeg)!
+        
+        let theTimeDate = timeDate()
         //////
         
         //Initializing a dictionary.
@@ -233,7 +242,8 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
             "likes": 0,
             // Here goes nothing again -JL
             "username": username,
-            "time": date
+            "timestamp": thedouble,
+            "date": theTimeDate
         ]
         
         //If there is an image url, this will be added to the above dictionary.

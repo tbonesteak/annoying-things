@@ -8,27 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		639CD66C859E0C7A7B1E3895 /* Pods_annoying_things.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2538D2A8AFF18F409475346 /* Pods_annoying_things.framework */; };
-		CE0074781C2B6CBB009D7E1C /* CreateUserNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0074771C2B6CBB009D7E1C /* CreateUserNameVC.swift */; settings = {ASSET_TAGS = (); }; };
-		CE18001F1C01676100C4383D /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE18001C1C01676100C4383D /* Bolts.framework */; settings = {ASSET_TAGS = (); }; };
-		CE1800201C01676100C4383D /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE18001D1C01676100C4383D /* FBSDKCoreKit.framework */; settings = {ASSET_TAGS = (); }; };
-		CE1800211C01676100C4383D /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE18001E1C01676100C4383D /* FBSDKLoginKit.framework */; settings = {ASSET_TAGS = (); }; };
-		CE19EB7B1C0048530043B4E9 /* MaterialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE19EB7A1C0048530043B4E9 /* MaterialButton.swift */; settings = {ASSET_TAGS = (); }; };
-		CE19EB7D1C0058410043B4E9 /* MaterialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE19EB7C1C0058410043B4E9 /* MaterialTextField.swift */; settings = {ASSET_TAGS = (); }; };
-		CE29A8291C0A66CE00BAE87A /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29A8281C0A66CE00BAE87A /* DataService.swift */; settings = {ASSET_TAGS = (); }; };
-		CE88D0DE1C0FF6480052DFAD /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE88D0DD1C0FF6480052DFAD /* FeedVC.swift */; settings = {ASSET_TAGS = (); }; };
-		CE88D0E01C0FFBEB0052DFAD /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE88D0DF1C0FFBEB0052DFAD /* PostCell.swift */; settings = {ASSET_TAGS = (); }; };
+		CE0074781C2B6CBB009D7E1C /* CreateUserNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0074771C2B6CBB009D7E1C /* CreateUserNameVC.swift */; };
+		CE18001F1C01676100C4383D /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE18001C1C01676100C4383D /* Bolts.framework */; };
+		CE1800201C01676100C4383D /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE18001D1C01676100C4383D /* FBSDKCoreKit.framework */; };
+		CE1800211C01676100C4383D /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE18001E1C01676100C4383D /* FBSDKLoginKit.framework */; };
+		CE19EB7B1C0048530043B4E9 /* MaterialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE19EB7A1C0048530043B4E9 /* MaterialButton.swift */; };
+		CE19EB7D1C0058410043B4E9 /* MaterialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE19EB7C1C0058410043B4E9 /* MaterialTextField.swift */; };
+		CE29A8291C0A66CE00BAE87A /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29A8281C0A66CE00BAE87A /* DataService.swift */; };
+		CE88D0DE1C0FF6480052DFAD /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE88D0DD1C0FF6480052DFAD /* FeedVC.swift */; };
+		CE88D0E01C0FFBEB0052DFAD /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE88D0DF1C0FFBEB0052DFAD /* PostCell.swift */; };
 		CEC990F51BFF0DDF00DDE77F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC990F41BFF0DDF00DDE77F /* AppDelegate.swift */; };
 		CEC990F71BFF0DDF00DDE77F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC990F61BFF0DDF00DDE77F /* ViewController.swift */; };
 		CEC990FA1BFF0DDF00DDE77F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEC990F81BFF0DDF00DDE77F /* Main.storyboard */; };
 		CEC990FC1BFF0DDF00DDE77F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEC990FB1BFF0DDF00DDE77F /* Assets.xcassets */; };
 		CEC990FF1BFF0DDF00DDE77F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEC990FD1BFF0DDF00DDE77F /* LaunchScreen.storyboard */; };
-		CEC9910E1BFF107100DDE77F /* NotoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEC9910A1BFF107100DDE77F /* NotoSans-Bold.ttf */; settings = {ASSET_TAGS = (); }; };
-		CEC9910F1BFF107100DDE77F /* NotoSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEC9910B1BFF107100DDE77F /* NotoSans-BoldItalic.ttf */; settings = {ASSET_TAGS = (); }; };
-		CEC991101BFF107100DDE77F /* NotoSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEC9910C1BFF107100DDE77F /* NotoSans-Italic.ttf */; settings = {ASSET_TAGS = (); }; };
-		CEC991111BFF107100DDE77F /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEC9910D1BFF107100DDE77F /* NotoSans-Regular.ttf */; settings = {ASSET_TAGS = (); }; };
-		CEC991131BFF1ACB00DDE77F /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC991121BFF1ACB00DDE77F /* MaterialView.swift */; settings = {ASSET_TAGS = (); }; };
-		CEC991161BFF1B8500DDE77F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC991151BFF1B8500DDE77F /* Constants.swift */; settings = {ASSET_TAGS = (); }; };
-		CEC9D7F01C16C1F200BAD6BD /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC9D7EF1C16C1F200BAD6BD /* Post.swift */; settings = {ASSET_TAGS = (); }; };
+		CEC9910E1BFF107100DDE77F /* NotoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEC9910A1BFF107100DDE77F /* NotoSans-Bold.ttf */; };
+		CEC9910F1BFF107100DDE77F /* NotoSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEC9910B1BFF107100DDE77F /* NotoSans-BoldItalic.ttf */; };
+		CEC991101BFF107100DDE77F /* NotoSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEC9910C1BFF107100DDE77F /* NotoSans-Italic.ttf */; };
+		CEC991111BFF107100DDE77F /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEC9910D1BFF107100DDE77F /* NotoSans-Regular.ttf */; };
+		CEC991131BFF1ACB00DDE77F /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC991121BFF1ACB00DDE77F /* MaterialView.swift */; };
+		CEC991161BFF1B8500DDE77F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC991151BFF1B8500DDE77F /* Constants.swift */; };
+		CEC9D7F01C16C1F200BAD6BD /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC9D7EF1C16C1F200BAD6BD /* Post.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -229,6 +229,7 @@
 				TargetAttributes = {
 					CEC990F01BFF0DDF00DDE77F = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 2SXJ6SK9EE;
 					};
 				};
 			};
@@ -444,6 +445,8 @@
 			baseConfigurationReference = C9F6A3E240B585CBC3F0BFDB /* Pods-annoying-things.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -451,8 +454,10 @@
 				);
 				INFOPLIST_FILE = "annoying-things/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.codervox.annoying-things";
+				PRODUCT_BUNDLE_IDENTIFIER = com.codervox.annoyingthings;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "5b969f6b-c72a-4a6d-be78-670d206c01b3";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -461,6 +466,8 @@
 			baseConfigurationReference = FFB984E8EAAAB38E9AE989CC /* Pods-annoying-things.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Jonathan Lue (2SXJ6SK9EE)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jonathan Lue (2SXJ6SK9EE)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -468,8 +475,10 @@
 				);
 				INFOPLIST_FILE = "annoying-things/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.codervox.annoying-things";
+				PRODUCT_BUNDLE_IDENTIFIER = com.codervox.annoyingthings;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "5b969f6b-c72a-4a6d-be78-670d206c01b3";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

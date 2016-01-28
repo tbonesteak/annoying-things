@@ -73,7 +73,7 @@ class CreateUserNameVC: UIViewController, UITextFieldDelegate {
             
             let username = createUsername.text
             NSUserDefaults.standardUserDefaults().setObject(username, forKey: KEY_USERNAME)
-            performSegueWithIdentifier(TO_FEED_VC, sender: nil)
+            performSegueWithIdentifier(TO_TERMS_VC, sender: nil)
         } else {
             showErrorAlert("Username is required", msg: "Please enter a user name. Thank you very much!")
         }

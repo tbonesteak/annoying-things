@@ -23,6 +23,7 @@ let KEY_USERNAME = "username"
 let SEGUE_LOGGED_IN = "loggedIn"
 let TO_FEED_VC = "tofeedvc"
 let SEGUE_STRAIGHT_TO_FEED = "straightofeed"
+let TO_TERMS_VC = "toTermsVC"
 
 //Status Codes
 let STATUS_ACCOUNT_NONEXIST = -8

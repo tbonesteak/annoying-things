@@ -243,7 +243,8 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
             // Here goes nothing again -JL
             "username": username,
             "timestamp": thedouble,
-            "date": theTimeDate
+            "date": theTimeDate,
+            "flags": 0
         ]
         
         //If there is an image url, this will be added to the above dictionary.

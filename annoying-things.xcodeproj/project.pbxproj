@@ -29,6 +29,7 @@
 		CEC991131BFF1ACB00DDE77F /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC991121BFF1ACB00DDE77F /* MaterialView.swift */; };
 		CEC991161BFF1B8500DDE77F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC991151BFF1B8500DDE77F /* Constants.swift */; };
 		CEC9D7F01C16C1F200BAD6BD /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC9D7EF1C16C1F200BAD6BD /* Post.swift */; };
+		CEF9646B1C5A172E007C741F /* TermsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF9646A1C5A172E007C741F /* TermsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		CEC991121BFF1ACB00DDE77F /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 		CEC991151BFF1B8500DDE77F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CEC9D7EF1C16C1F200BAD6BD /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		CEF9646A1C5A172E007C741F /* TermsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsVC.swift; sourceTree = "<group>"; };
 		D2538D2A8AFF18F409475346 /* Pods_annoying_things.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_annoying_things.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFB984E8EAAAB38E9AE989CC /* Pods-annoying-things.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-annoying-things.release.xcconfig"; path = "Pods/Target Support Files/Pods-annoying-things/Pods-annoying-things.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -144,6 +146,7 @@
 				CEC990F61BFF0DDF00DDE77F /* ViewController.swift */,
 				CE88D0DD1C0FF6480052DFAD /* FeedVC.swift */,
 				CE0074771C2B6CBB009D7E1C /* CreateUserNameVC.swift */,
+				CEF9646A1C5A172E007C741F /* TermsVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				CE0074781C2B6CBB009D7E1C /* CreateUserNameVC.swift in Sources */,
 				CE88D0E01C0FFBEB0052DFAD /* PostCell.swift in Sources */,
 				CEC990F51BFF0DDF00DDE77F /* AppDelegate.swift in Sources */,
+				CEF9646B1C5A172E007C741F /* TermsVC.swift in Sources */,
 				CEC991161BFF1B8500DDE77F /* Constants.swift in Sources */,
 				CE19EB7B1C0048530043B4E9 /* MaterialButton.swift in Sources */,
 				CEC9D7F01C16C1F200BAD6BD /* Post.swift in Sources */,

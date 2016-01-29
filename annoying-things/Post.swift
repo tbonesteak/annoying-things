@@ -18,6 +18,7 @@ class Post {
     private var _username: String!
     private var _postKey: String!  // We're saving the unique identifier in case we to have access to it
     private var _postRef: Firebase! //A reference to the current post.
+    private var _flags: Int!
     
     var postDescription: String {
         return _postDescription
@@ -37,6 +38,10 @@ class Post {
     
     var postKey: String {
         return _postKey
+    }
+    
+    var flags: Int {
+        return _flags
     }
     
     init(description: String, imageUrl: String?, username: String) {
@@ -69,6 +74,10 @@ class Post {
         if let user = dictionary["username"] as? String {
             self._username = user
         }
+        
+        if let flags = dictionary["flags"] as? Int {
+            self._flags = flags
+        }
         //-JL////////////////
         
         self._postRef = DataService.ds.REF_POSTS.childByAppendingPath(self._postKey)
@@ -82,6 +91,17 @@ class Post {
         }
         
         _postRef.childByAppendingPath("likes").setValue(_likes)
+        
+    }
+    
+    func adjustFlags(addFlag: Bool) {
+        if addFlag {
+            _flags = _flags + 1
+        } else {
+            _flags = _flags - 1
+        }
+        
+        _postRef.childByAppendingPath("flags").setValue(_flags)
         
     }
 }

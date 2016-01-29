@@ -18,6 +18,7 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var likesLbl: UILabel!
     @IBOutlet weak var likeImage: UIImageView!
     @IBOutlet weak var theUsername: UILabel!
+    @IBOutlet weak var flagsImage: UIImageView!
     
     // Creating a container to hold the instance of the Post class
     var post: Post!
@@ -29,6 +30,7 @@ class PostCell: UITableViewCell {
     
     //-JL
     var yes: String!
+    var flagsRef: Firebase!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -39,6 +41,11 @@ class PostCell: UITableViewCell {
         tap.numberOfTapsRequired = 1
         likeImage.addGestureRecognizer(tap)
         likeImage.userInteractionEnabled = true
+        
+        let flagstap = UITapGestureRecognizer(target: self, action: "flagTapped:")
+        flagstap.numberOfTapsRequired = 2
+        flagsImage.addGestureRecognizer(flagstap)
+        flagsImage.userInteractionEnabled = true
 
     }
     
@@ -59,6 +66,8 @@ class PostCell: UITableViewCell {
         //Grabbing a reference to the current user and the likes and the post key of the post being displayed on the screen.
         //If that post doesn't exist (meaning that post was never liked), that's ok too.
         likeRef = DataService.ds.REF_CURRENT_USER.childByAppendingPath("likes").childByAppendingPath(post.postKey)
+        
+        flagsRef = DataService.ds.REF_CURRENT_USER.childByAppendingPath("flags").childByAppendingPath(post.postKey)
         
         // We're pulling out the attributes from the instance and throwing it into our outlets
         
@@ -115,6 +124,18 @@ class PostCell: UITableViewCell {
         }
         
         
+        
+        
+        flagsRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            if let flagsDoNotExist = snapshot.value as? NSNull {
+                self.flagsImage.image = UIImage(named: "clearflag1")
+            } else {
+                self.flagsImage.image = UIImage(named: "blackflag1")
+            }
+        })
+        
+        
+        
         //This checks once to see if there is a like for the post.
         likeRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             
@@ -142,6 +163,20 @@ class PostCell: UITableViewCell {
                 self.likeImage.image = UIImage(named: "heart-empty")
                 self.post.adjustLikes(false) //removes 1 from the likes.
                 self.likeRef.removeValue()
+            }
+        })
+    }
+    
+    func flagTapped(sender: UIGestureRecognizer) {
+        flagsRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            if let flagsDoNotExist = snapshot.value as? NSNull {
+                self.flagsImage.image = UIImage(named: "blackflag1")
+                self.post.adjustFlags(true)
+                self.flagsRef.setValue(true)
+            } else {
+                self.flagsImage.image = UIImage(named: "clearflag1")
+                self.post.adjustFlags(false)
+                self.flagsRef.removeValue()
             }
         })
     }
